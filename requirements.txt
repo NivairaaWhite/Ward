@@ -1,0 +1,20 @@
+Flask>=3.0,<4.0
+Flask-SQLAlchemy>=3.1,<4.0
+python-dotenv>=1.0,<2.0
+requests>=2.31,<3.0
+Pillow>=10.0,<12.0
+numpy>=1.26,<3.0
+scipy>=1.11,<2.0
+gunicorn>=22.0,<23.0
+opencv-python-headless>=4.9,<5.0  # CascadeClassifier is absent from the 5.x objdetect module as of this writing
+PyWavelets>=1.4,<2.0  # DWT for watermark.py's LL-band embedding -- see that module's docstring
+reedsolo>=1.7,<2.0  # Reed-Solomon error correction, layered on top of the DWT watermark -- see watermark.py
+cryptography>=42.0,<44.0  # Ed25519 signing for the local provenance fallback -- see core/provenance.py
+
+# Real C2PA manifest signing (core/provenance.py) -- only does anything if
+# you configure your own CA-issued cert via C2PA_CERT_PATH/C2PA_KEY_PATH in
+# .env (see that module's docstring for why a self-signed cert won't work).
+# Without a configured cert, Ward runs fine without this too -- it's
+# imported in a try/except and everything falls back to the local-only
+# provenance record. Comment out if you'd rather skip the install entirely.
+c2pa-python>=0.29,<1.0

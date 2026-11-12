@@ -1,0 +1,23 @@
+# Runtime data -- created automatically, holds your own protected images
+instance/
+uploads/
+outputs/
+originals/
+evidence/
+
+# Environment (may contain your SerpApi key / C2PA cert paths)
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

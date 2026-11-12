@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ward — protect, track, and report</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22%2314171F%22/><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22none%22 stroke=%22%23C9A24B%22 stroke-width=%226%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23C9A24B%22 font-family=%22serif%22>W</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wordmark">
+    <svg class="seal-mark" viewBox="0 0 44 44" aria-hidden="true">
+      <circle cx="22" cy="22" r="19" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <text x="22" y="30" text-anchor="middle" class="seal-letter">W</text>
+    </svg>
+    <span>Ward</span>
+  </div>
+  <p class="tagline">Mark your art. Trace where it travels. Report what shouldn't be there.</p>
+  <div class="topbar-actions">
+    <button class="icon-btn" id="settings-btn" type="button" aria-label="Settings" title="Settings">
+      <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M19.4 13a7.6 7.6 0 000-2l2-1.6-2-3.4-2.4 1a7.5 7.5 0 00-1.7-1L14.8 3h-3.6l-.5 2.6a7.5 7.5 0 00-1.7 1l-2.4-1-2 3.4L6.6 11a7.6 7.6 0 000 2l-2 1.6 2 3.4 2.4-1a7.5 7.5 0 001.7 1l.5 2.6h3.6l.5-2.6a7.5 7.5 0 001.7-1l2.4 1 2-3.4-2-1.6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="panel upload-panel" id="upload-panel">
+    <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload an image to protect">
+      <input type="file" id="file-input" accept=".png,.jpg,.jpeg,.webp,.bmp,.tiff" multiple hidden>
+      <svg viewBox="0 0 48 48" class="drop-icon" aria-hidden="true">
+        <path d="M24 6 L24 30 M14 16 L24 6 L34 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 32 L8 38 Q8 40 10 40 L38 40 Q40 40 40 38 L40 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <p class="drop-title">Drop one or more images here, or click to choose</p>
+      <p class="drop-sub">PNG, JPG, WEBP, BMP, or TIFF · up to 25MB each</p>
+    </div>
+
+    <div class="strength-row">
+      <div class="field">
+        <label for="mode-select">Content type</label>
+        <select id="mode-select">
+          <option value="art">Illustration / art</option>
+          <option value="portrait">Photo with people</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="strength-select">Protection strength</label>
+        <select id="strength-select">
+          <option value="0.6">Gentle</option>
+          <option value="1.0" selected>Standard</option>
+          <option value="1.4">Strong</option>
+        </select>
+      </div>
+    </div>
+    <p class="mode-note">
+      "Photo with people" also cloaks each detected face individually, since face crops get hashed
+      separately by most scraping tools. Strength trades a slightly larger pixel change for a
+      harder-to-match hash — Standard is a good default; go Strong only if you see repeat exact
+      matches after Standard.
+    </p>
+  </section>
+
+  <section class="panel" id="queue-panel" hidden>
+    <p class="section-label">Processing</p>
+    <div class="queue-row" id="queue-row"></div>
+  </section>
+
+  <section class="panel verify-panel">
+    <p class="section-label">Check an image you found</p>
+    <p class="mode-note" style="margin-top:0;">
+      Upload a suspect copy. Leave the tracking code blank to identify it from its watermark, or
+      paste a code to test it against one specific image (this also handles resized or cropped copies).
+    </p>
+    <div class="strength-row">
+      <div class="field"><label for="verify-file">Suspect image</label>
+        <input type="file" id="verify-file" accept=".png,.jpg,.jpeg,.webp,.bmp,.tiff"></div>
+      <div class="field"><label for="verify-id">Tracking code (optional)</label>
+        <input type="text" id="verify-id" placeholder="e.g. a1b2c3d4e5f6" maxlength="12"></div>
+      <div class="field"><label>&nbsp;</label><button class="btn" id="verify-btn" type="button">Check</button></div>
+    </div>
+    <p class="mode-note" id="verify-result" role="status"></p>
+  </section>
+
+  <section class="panel gallery-panel">
+    <div class="gallery-head">
+      <h2>Your ledger</h2>
+      <span class="gallery-count" id="gallery-count"></span>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <p class="gallery-empty" id="gallery-empty">Nothing protected yet — drop an image above to get started.</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="detail-overlay" id="detail-overlay" hidden>
+  <div class="detail-panel" id="detail-panel"></div>
+</div>
+
+<div class="detail-overlay" id="settings-overlay" hidden>
+  <div class="detail-panel" id="settings-panel"></div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+  window.WARD_TRACKER_CONFIGURED = {{ 'true' if tracker_configured else 'false' }};
+</script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

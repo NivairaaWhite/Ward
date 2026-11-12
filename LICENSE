@@ -1,0 +1,65 @@
+Ward Software License
+
+Copyright (c) 2026 Mahasvin S S. All rights reserved.
+
+This is a template starting point, not a substitute for a lawyer. It
+uses standard, common patterns (grant of use, no-resale restriction, "AS
+IS" disclaimer) rather than anything novel.
+
+1. GRANT OF LICENSE
+
+Subject to the terms below, you are granted a non-exclusive,
+non-transferable license to:
+
+  (a) run Ward on your own devices, for your own purposes, including
+      commercial purposes (e.g. protecting artwork or photos you sell
+      or otherwise use in your own business), at no cost; and
+  (b) modify your own copy of Ward's source code for your own use.
+
+Every feature of Ward is free, for everyone, with no license key,
+account, or payment of any kind.
+
+2. RESTRICTIONS
+
+You may not, without prior written permission from the copyright
+holder:
+
+  (a) distribute, sell, sublicense, rent, or lease copies of Ward
+      (modified or not) to any third party;
+  (b) use Ward, in whole or substantial part, to build, offer, or
+      distribute a competing product or service; or
+  (c) remove or alter any copyright, license, or attribution notices
+      contained in Ward.
+
+3. THIRD-PARTY COMPONENTS
+
+Ward is built on open-source components (Flask, Pillow, NumPy, SciPy,
+OpenCV, PyWavelets, reedsolo, and others listed in requirements.txt),
+each under its own license. This license covers Ward's own original
+source code only; it does not change the license terms of any
+third-party component Ward depends on.
+
+4. NO WARRANTY
+
+WARD IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NONINFRINGEMENT. IN PARTICULAR, AND WITHOUT LIMITING THE FOREGOING:
+WARD'S PROTECTIVE FEATURES (WATERMARKING, PERCEPTUAL-HASH DISRUPTION,
+METADATA TAGGING, AND ANY OTHER PROTECTION MECHANISM) ARE PROVIDED ON A
+BEST-EFFORT BASIS AND ARE NOT GUARANTEED TO PREVENT UNAUTHORIZED USE,
+SCRAPING, OR AI TRAINING ON ANY IMAGE UNDER ALL CIRCUMSTANCES -- SEE
+README.md FOR DOCUMENTED, TESTED LIMITS.
+
+5. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM,
+DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR
+OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH WARD OR THE USE
+OR OTHER DEALINGS IN WARD.
+
+6. TERMINATION
+
+This license terminates automatically if you breach any of its terms.
+Upon termination, you must stop using Ward and destroy any copies in
+your possession.
