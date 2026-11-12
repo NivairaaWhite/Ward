@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ward — track where your images turn up</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22%2314171F%22/><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22none%22 stroke=%22%23C9A24B%22 stroke-width=%226%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23C9A24B%22 font-family=%22serif%22>W</text></svg>">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wordmark">
+    <svg class="seal-mark" viewBox="0 0 44 44" aria-hidden="true">
+      <circle cx="22" cy="22" r="19" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <text x="22" y="30" text-anchor="middle" class="seal-letter">W</text>
+    </svg>
+    <span>Ward</span>
+  </div>
+  <p class="tagline">Upload an image, then check where it turns up online.</p>
+  <div class="topbar-actions">
+    <button class="icon-btn" id="settings-btn" type="button" aria-label="Settings" title="Settings">
+      <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M19.4 13a7.6 7.6 0 000-2l2-1.6-2-3.4-2.4 1a7.5 7.5 0 00-1.7-1L14.8 3h-3.6l-.5 2.6a7.5 7.5 0 00-1.7 1l-2.4-1-2 3.4L6.6 11a7.6 7.6 0 000 2l-2 1.6 2 3.4 2.4-1a7.5 7.5 0 001.7 1l.5 2.6h3.6l.5-2.6a7.5 7.5 0 001.7-1l2.4 1 2-3.4-2-1.6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="panel upload-panel" id="upload-panel">
+    <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload an image to track">
+      <input type="file" id="file-input" accept=".png,.jpg,.jpeg,.webp,.bmp,.tiff" multiple hidden>
+      <svg viewBox="0 0 48 48" class="drop-icon" aria-hidden="true">
+        <path d="M24 6 L24 30 M14 16 L24 6 L34 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 32 L8 38 Q8 40 10 40 L38 40 Q40 40 40 38 L40 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <p class="drop-title" id="drop-title">Drop images here, or click to choose files</p>
+      <p class="drop-sub">PNG, JPG, WEBP, BMP, or TIFF · up to 25MB</p>
+    </div>
+  </section>
+
+  <section class="panel gallery-panel">
+    <div class="gallery-head">
+      <h2>Your ledger</h2>
+      <span class="gallery-count" id="gallery-count"></span>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <p class="gallery-empty" id="gallery-empty">Nothing tracked yet — upload an image above to get started.</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="detail-overlay" id="detail-overlay" hidden>
+  <div class="detail-panel" id="detail-panel" role="dialog" aria-modal="true" aria-label="Image details"></div>
+</div>
+
+<div class="detail-overlay" id="settings-overlay" hidden>
+  <div class="detail-panel" id="settings-panel" role="dialog" aria-modal="true" aria-label="Settings"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+  window.WARD_TRACKER_CONFIGURED = {{ 'true' if tracker_configured else 'false' }};
+</script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

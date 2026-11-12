@@ -1,0 +1,21 @@
+# Runtime data -- created automatically, holds your own tracked images
+instance/
+images/
+thumbnails/
+
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

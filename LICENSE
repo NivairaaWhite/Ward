@@ -1,0 +1,121 @@
+# Ward Software License
+
+Copyright (c) 2026 Mahasvin S S. All rights reserved.
+
+This license governs the original source code of Ward. It is a
+source-available license and is not intended to be an open-source
+license.
+
+This license is a template and is not a substitute for legal advice.
+
+## 1. GRANT OF LICENSE
+
+Subject to the terms of this license, the copyright holder grants you a
+non-exclusive, non-transferable, worldwide license to:
+
+(a) download, install, and run Ward on your own devices for personal or
+commercial purposes, including use in your own business;
+
+(b) use all features of Ward at no cost, without requiring a license
+key, account, subscription, or payment to the copyright holder; and
+
+(c) modify your own copy of Ward's source code for your own personal or
+commercial use.
+
+This license does not grant you the right to redistribute Ward or
+derivative versions of Ward.
+
+## 2. RESTRICTIONS
+
+Without prior written permission from the copyright holder, you may not:
+
+(a) distribute, publish, sell, sublicense, rent, lease, or otherwise
+make Ward or a modified version of Ward available to third parties;
+
+(b) use Ward, or a substantial portion of its source code or
+functionality, to create, offer, or distribute a competing image
+tracking product or service;
+
+(c) remove or alter copyright, license, attribution, or other
+proprietary notices included with Ward; or
+
+(d) represent Ward or a modified version of Ward as an official product
+of the copyright holder.
+
+You may keep and use private modifications of Ward on your own devices,
+including modifications made for your own commercial activities.
+
+## 3. THIRD-PARTY COMPONENTS
+
+Ward uses third-party open-source software and other dependencies,
+including components listed in `requirements.txt`.
+
+Each third-party component remains subject to its own applicable
+license. This license applies only to the original source code and
+original materials of Ward and does not replace, restrict, or modify
+the licenses of third-party components.
+
+Where required by a third-party license, the applicable copyright and
+license notices must be preserved.
+
+## 4. EXTERNAL SERVICES
+
+Ward's image-tracking functionality may use external services,
+including SerpApi and Google Lens through the applicable API.
+
+Use of those services is subject to their respective terms, policies,
+availability, and usage limits.
+
+The copyright holder does not guarantee the availability, accuracy,
+completeness, or continued operation of any external service used by
+Ward.
+
+## 5. NO WARRANTY
+
+WARD IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NONINFRINGEMENT.
+
+The copyright holder does not guarantee that Ward will:
+
+(a) identify every online occurrence of an image;
+
+(b) identify matches accurately or completely;
+
+(c) remain compatible with external search services or APIs;
+
+(d) prevent unauthorized use, copying, or distribution of an image; or
+
+(e) operate without interruption or errors.
+
+Reverse-image search results depend in part on external services and
+their available indexes, algorithms, and policies.
+
+## 6. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL
+THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE,
+ARISING FROM, OUT OF, OR IN CONNECTION WITH WARD OR THE USE OR OTHER
+DEALINGS IN WARD.
+
+## 7. TERMINATION
+
+This license terminates automatically if you materially breach its
+terms.
+
+Upon termination, you must stop using Ward and destroy copies of Ward
+that you are required to cease possessing or using under applicable
+law.
+
+Rights and permissions that by their nature should survive termination,
+including applicable disclaimers and limitations of liability, shall
+survive termination.
+
+## 8. COPYRIGHT
+
+All rights not expressly granted by this license are reserved by the
+copyright holder.
+
+Copyright (c) 2026 Mahasvin S S. All rights reserved.
